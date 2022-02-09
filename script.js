@@ -65,7 +65,5 @@ function placeHolderBook() {
   myLibrary.push(placeholderBook);
 }
 
-placeHolderBook();
-
 const container = document.getElementById("container");
-container.addEventListener("load", createLibrary());
+container.addEventListener("load", placeHolderBook(), createLibrary());
