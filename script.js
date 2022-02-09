@@ -18,7 +18,19 @@ function addBookToLibrary() {
   if (title != null && read != null) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
+    createLibrary();
   }
+}
+
+function createLibrary() {
+  myLibrary.forEach((element) =>
+    createLibraryCard(
+        element.title,
+        element.author,
+        element.pages,
+        element.read
+    )
+  );
 }
 
 function createLibraryCard(title, author, pages, read) {
@@ -51,13 +63,9 @@ function placeHolderBook() {
     "true"
   );
   myLibrary.push(placeholderBook);
-  createLibraryCard(
-    myLibrary[0].title,
-    myLibrary[0].author,
-    myLibrary[0].pages,
-    myLibrary[0].read
-  );
 }
 
 placeHolderBook();
-//make function to loop through array and create each book;
+
+const container = document.getElementById("container");
+container.addEventListener("load", createLibrary());
