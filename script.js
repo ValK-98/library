@@ -37,7 +37,7 @@ function createLibrary() {
   }
 }
 
-function createLibraryCard(title, author, pages, read, exists) {
+function createLibraryCard(title, author, pages, read) {
   const bookCard = document.createElement("div");
   const bookTitle = document.createElement("h3");
   const bookAuthor = document.createElement("h4");
@@ -70,4 +70,7 @@ function createLibraryCard(title, author, pages, read, exists) {
 // }
 
 const container = document.getElementById("container");
+const button = document.getElementById("add-book-button");
+
+button.addEventListener("click", addBookToLibrary);
 // container.addEventListener("load", addBookToLibrary());
