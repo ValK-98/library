@@ -5,7 +5,7 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
+  this.returnArr = function () {
     return [title, author, pages, read];
   };
 }
@@ -31,11 +31,11 @@ function createLibraryCard(title, author, pages, read) {
   bookAuthor.innerText = `Author: ${author}`;
   bookPages.innerText = `Pages: ${pages}`;
   bookRead.innerText = `Has it been read? - ${read}`;
-  bookCard.classList.add("bookCard", "card-contend");
-  bookTitle.classList.add("bookTitle", "card-contend");
-  bookAuthor.classList.add("bookAuthor", "card-contend");
-  bookPages.classList.add("bookPages", "card-contend");
-  bookRead.classList.add("bookRead", "card-contend");
+  bookCard.classList.add("library-card");
+  bookTitle.classList.add("book-title", "card-content");
+  bookAuthor.classList.add("book-author", "card-content");
+  bookPages.classList.add("book-pages", "card-content");
+  bookRead.classList.add("book-read", "card-content");
   bookCard.appendChild(bookTitle);
   bookCard.appendChild(bookAuthor);
   bookCard.appendChild(bookPages);
@@ -43,4 +43,21 @@ function createLibraryCard(title, author, pages, read) {
   document.getElementById("library").appendChild(bookCard);
 }
 
+function placeHolderBook() {
+  const placeholderBook = new Book(
+    "Life and Times of Bob",
+    "Big Man Tod",
+    250,
+    "true"
+  );
+  myLibrary.push(placeholderBook);
+  createLibraryCard(
+    myLibrary[0].title,
+    myLibrary[0].author,
+    myLibrary[0].pages,
+    myLibrary[0].read
+  );
+}
+
+placeHolderBook();
 //make function to loop through array and create each book;
