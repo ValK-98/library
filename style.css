@@ -1,8 +1,17 @@
-* {
+html, *, *::before, *::after {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+}
+
+#library {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    border: solid black;
+    width: 250px;
+    height: 250px;
 }
