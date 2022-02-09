@@ -1,17 +1,17 @@
 let myLibrary = [];
 
-
-function Book(){
-    // constructor
-    // title
-    // author 
-    // number of pages
-    // read? true/false
-    // return values 
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+  this.info = function () {
+    return title, author, pages, read;
+  };
 }
 
-function addBookToLibrary(){
-    // prompts user for book 
-    // asks for title, author, pages and read 
-    // calls Book() and puts item into myLibrary
-}
+// function addBookToLibrary() {
+//   // prompts user for book
+//   // asks for title, author, pages and read
+//   // calls Book() and puts item into myLibrary
+// }
