@@ -57,6 +57,28 @@ html,
   gap: 10px;
 }
 
+.default-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-book-button {
+    cursor: pointer;
+    color: var(--violet-50);
+    background-color: var(--violet-500);
+    box-shadow: 2px 2px 4px var(--shadow);
+    border-radius: 5px;
+    width: 125px;
+    height: 75px;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+}
+
+#add-book-button:hover {
+    background-color: var(--violet-900);
+}
+
 .library-card {
   background-color: var(--violet-50);
   box-shadow: 2px 2px 4px var(--shadow);

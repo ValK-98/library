@@ -70,4 +70,4 @@ function createLibraryCard(title, author, pages, read, exists) {
 // }
 
 const container = document.getElementById("container");
-container.addEventListener("load", addBookToLibrary());
+// container.addEventListener("load", addBookToLibrary());
