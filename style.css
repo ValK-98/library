@@ -1,4 +1,8 @@
-html, *, *::before, *::after {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+html,
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   border: 0;
@@ -7,29 +11,65 @@ html, *, *::before, *::after {
   vertical-align: baseline;
 }
 
-.header {
-    position: absolute;
-    width: 100%;
-    height: 15%;
-    background-color: rgb(192, 75, 75);
-    box-shadow: 2px 2px 4px black;
-}
-#container {
-    position: absolute;
-    top: 15%;
-    padding-top: 20px;
-    padding-left: 20px;
+:root {
+  font-family: "Roboto", sans-serif;
+  --violet-900: #4c1d95;
+  --violet-800: #5b21b6;
+  --violet-700: #6d28d9;
+  --violet-600: #7c3aed;
+  --violet-500: #8b5cf6;
+  --violet-400: #a78bfa;
+  --violet-300: #c4b5fd;
+  --violet-200: #ddd6fe;
+  --violet-100: #e1def0;
+  --violet-50: #f5f3ff;
+  --shadow: rgb(151, 151, 151);
+  --main-content-size: 80%;
+  background-color: var(--violet-200);
 }
 
-.library-card {
-    border: solid black;
-    width: 250px;
-    height: 250px;
+.header {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  background-color: var(--violet-800);
+  box-shadow: 2px 2px 4px var(--shadow);
+}
+
+.header-title {
+  color: var(--violet-50);
+  font-weight: bold;
+  font-size: 34px;
+  letter-spacing: 2px;
+  padding: 30px;
+}
+
+#container {
+  position: absolute;
+  top: 15%;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 #library {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.library-card {
+  background-color: var(--violet-50);
+  box-shadow: 2px 2px 4px var(--shadow);
+  border-left: 8px solid var(--violet-400);
+  border-radius: 5px;
+  width: 250px;
+  height: 200px;
+  padding: 10px;
+  line-height: 40px;
+}
+
+.book-title {
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1.5px;
 }
