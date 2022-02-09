@@ -73,4 +73,5 @@ const container = document.getElementById("container");
 const button = document.getElementById("add-book-button");
 
 button.addEventListener("click", addBookToLibrary);
-// container.addEventListener("load", addBookToLibrary());
+
+// Left on step 4 on TOP
