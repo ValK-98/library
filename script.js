@@ -5,6 +5,7 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.exists = -0;
   this.returnArr = function () {
     return [title, author, pages, read];
   };
@@ -23,17 +24,20 @@ function addBookToLibrary() {
 }
 
 function createLibrary() {
-  myLibrary.forEach((element) =>
-    createLibraryCard(
-        element.title,
-        element.author,
-        element.pages,
-        element.read
-    )
-  );
+  for (let i = 0; i < myLibrary.length; i++) {
+    if (myLibrary[i].exists == false) {
+      createLibraryCard(
+        myLibrary[i].title,
+        myLibrary[i].author,
+        myLibrary[i].pages,
+        myLibrary[i].read
+      ),
+        (myLibrary[i].exists = 1);
+    }
+  }
 }
 
-function createLibraryCard(title, author, pages, read) {
+function createLibraryCard(title, author, pages, read, exists) {
   const bookCard = document.createElement("div");
   const bookTitle = document.createElement("h3");
   const bookAuthor = document.createElement("h4");
@@ -55,15 +59,15 @@ function createLibraryCard(title, author, pages, read) {
   document.getElementById("library").appendChild(bookCard);
 }
 
-function placeHolderBook() {
-  const placeholderBook = new Book(
-    "Life and Times of Bob",
-    "Big Man Tod",
-    250,
-    "true"
-  );
-  myLibrary.push(placeholderBook);
-}
+// function placeHolderBook() {
+//   const placeholderBook = new Book(
+//     "Life and Times of Bob",
+//     "Big Man Tod",
+//     250,
+//     "true"
+//   );
+//   myLibrary.push(placeholderBook);
+// }
 
 const container = document.getElementById("container");
-container.addEventListener("load", placeHolderBook(), createLibrary());
+container.addEventListener("load", addBookToLibrary());
