@@ -12,10 +12,14 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-  let title = prompt("Title");
-  let author = prompt("Author");
-  let pages = prompt("Pages");
-  let read = prompt("Read?");
+  const author = document.querySelector("#author-name").value;
+  const title = document.querySelector("#title").value;
+  const pages = document.querySelector("#pages").value;
+  // const read = document.querySelector("#read").value; RETURN ON BY DEFAULT
+  // let title = prompt("Title");
+  // let author = prompt("Author");
+  // let pages = prompt("Pages");
+  // let read = prompt("Read?");
   if (title != null && read != null) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
@@ -59,7 +63,6 @@ function createLibraryCard(title, author, pages, read) {
   document.getElementById("library").appendChild(bookCard);
 }
 
-
 function openForm() {
   document.getElementById("entry-form").style.display = "flex";
   document.getElementById("open-form-button").style.display = "none";
@@ -73,20 +76,11 @@ function closeForm() {
 const container = document.getElementById("container");
 const openFormButton = document.getElementById("open-form-button");
 const closeFormButton = document.getElementById("go-back");
+const submitBook = document.getElementById("submit-book");
 
 
 openFormButton.addEventListener("click", openForm);
 closeFormButton.addEventListener("click", closeForm);
+submitBook.addEventListener("click", addBookToLibrary);
 
 
-// button.addEventListener("click", addBookToLibrary);
-
-// function placeHolderBook() {
-//   const placeholderBook = new Book(
-//     "Life and Times of Bob",
-//     "Big Man Tod",
-//     250,
-//     "true"
-//   );
-//   myLibrary.push(placeholderBook);
-// }

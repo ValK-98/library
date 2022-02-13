@@ -20,29 +20,32 @@
         <div class="default-card library-card">
           <button type="button" id="open-form-button">Add New Book</button>
           <div id="entry-form">
-            <form>
+            <form id="book-form">
               <div class="input-fields">
                 <input
                   type="text"
                   class="input-field author"
+                  id= "author-name"
                   name="author"
                   placeholder="Author:"
                 /><br />
                 <input
                   type="text"
                   class="input-field title"
+                  id= "title"
                   name="title"
                   placeholder="Title:"
                 />
                 <input
-                  type="text"
+                  type="number"
                   class="input-field pages"
+                  id= "pages"
                   name="pages"
                   placeholder="Pages:"
                 /><br />
               </div>
               <div class="read-check">
-                <input type="checkbox" id="read" name="read"/>
+                <input type="checkbox" id="read" name="read" />
                 <label for="read">Have you read this?</label>
               </div>
               <button type="button" class="form-button" id="submit-book">
