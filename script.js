@@ -59,15 +59,6 @@ function createLibraryCard(title, author, pages, read) {
   document.getElementById("library").appendChild(bookCard);
 }
 
-// function placeHolderBook() {
-//   const placeholderBook = new Book(
-//     "Life and Times of Bob",
-//     "Big Man Tod",
-//     250,
-//     "true"
-//   );
-//   myLibrary.push(placeholderBook);
-// }
 
 function openForm() {
   document.getElementById("entry-form").style.display = "flex";
@@ -83,11 +74,19 @@ const container = document.getElementById("container");
 const openFormButton = document.getElementById("open-form-button");
 const closeFormButton = document.getElementById("go-back");
 
-// button.addEventListener("click", addBookToLibrary);
 
 openFormButton.addEventListener("click", openForm);
 closeFormButton.addEventListener("click", closeForm);
 
 
+// button.addEventListener("click", addBookToLibrary);
 
-// Use button id to show/hide form by changing display type 
+// function placeHolderBook() {
+//   const placeholderBook = new Book(
+//     "Life and Times of Bob",
+//     "Big Man Tod",
+//     250,
+//     "true"
+//   );
+//   myLibrary.push(placeholderBook);
+// }

@@ -69,10 +69,6 @@ html,
   line-height: 30px;
 }
 
-.radio-buttons {
-  line-height: 20px;
-}
-
 .input-field {
   color: var(--violet-500);
   background-color: var(--violet-100);
@@ -82,6 +78,10 @@ html,
 
 .input-field::placeholder {
   color: var(--violet-500);
+}
+
+.read-check {
+  color: var(--violet-800);
 }
 
 .form-button {
