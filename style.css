@@ -59,8 +59,8 @@ html,
   /* need to fix scaling, doesn't look great rn */
 }
 
-.entry-form {
-  display: flex;
+#entry-form {
+  display: none;
   box-sizing: border-box;
   padding: 10px;
 }
@@ -111,20 +111,19 @@ html,
   align-items: center;
 }
 
-#add-book-button {
-  display: none;
-  /* cursor: pointer;
-    color: var(--violet-50);
-    background-color: var(--violet-500);
-    box-shadow: 2px 2px 4px var(--shadow);
-    border-radius: 5px;
-    width: 125px;
-    height: 75px;
-    letter-spacing: 0.5px;
-    font-size: 15px; */
+#open-form-button {
+  cursor: pointer;
+  color: var(--violet-50);
+  background-color: var(--violet-500);
+  box-shadow: 2px 2px 4px var(--shadow);
+  border-radius: 5px;
+  width: 125px;
+  height: 75px;
+  letter-spacing: 0.5px;
+  font-size: 15px;
 }
 
-#add-book-button:hover {
+#open-form-button:hover {
   background-color: var(--violet-900);
 }
 

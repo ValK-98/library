@@ -69,15 +69,25 @@ function createLibraryCard(title, author, pages, read) {
 //   myLibrary.push(placeholderBook);
 // }
 
+function openForm() {
+  document.getElementById("entry-form").style.display = "flex";
+  document.getElementById("open-form-button").style.display = "none";
+}
+
+function closeForm() {
+  document.getElementById("entry-form").style.display = "none";
+  document.getElementById("open-form-button").style.display = "initial";
+}
+
 const container = document.getElementById("container");
-const button = document.getElementById("add-book-button");
+const openFormButton = document.getElementById("open-form-button");
+const closeFormButton = document.getElementById("go-back");
 
-button.addEventListener("click", addBookToLibrary);
+// button.addEventListener("click", addBookToLibrary);
 
-// Left on step 4 on TOP
+openFormButton.addEventListener("click", openForm);
+closeFormButton.addEventListener("click", closeForm);
 
 
-// create HTML div with form 
-// hide form using CSS 
+
 // Use button id to show/hide form by changing display type 
-//
