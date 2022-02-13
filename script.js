@@ -27,6 +27,13 @@ function addBookToLibrary() {
   }
 }
 
+// function clearInput() {
+//   let author = document.querySelector("#author-name").value;
+//   let title = document.querySelector("#title").value;
+//   let pages = document.querySelector("#pages").value;
+//   return (author = ""), (title = ""), (pages = "");
+// }
+
 function createLibrary() {
   for (let i = 0; i < myLibrary.length; i++) {
     if (myLibrary[i].exists == false) {
@@ -84,3 +91,6 @@ closeFormButton.addEventListener("click", closeForm);
 submitBook.addEventListener("click", addBookToLibrary);
 
 
+// left on TOP step 5.
+// Need to finish checkbox function for user input. 
+// Need to implement erase function. 
