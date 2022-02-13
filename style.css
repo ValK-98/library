@@ -48,25 +48,72 @@ html,
   position: absolute;
   top: 15%;
   padding-top: 20px;
-  padding-left: 20px;
   width: 100%;
 }
 
 #library {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px; 
+  gap: 10px;
+  padding-left: 20px;
   /* need to fix scaling, doesn't look great rn */
 }
 
+.entry-form {
+  display: flex;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.input-fields {
+  line-height: 30px;
+}
+
+.radio-buttons {
+  line-height: 20px;
+}
+
+.input-field {
+  color: var(--violet-500);
+  background-color: var(--violet-100);
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.input-field::placeholder {
+  color: var(--violet-500);
+}
+
+.form-button {
+  cursor: pointer;
+  color: var(--violet-50);
+  background-color: var(--violet-500);
+  box-shadow: 2px 2px 4px var(--shadow);
+  border-radius: 5px;
+  width: 55px;
+  height: 40px;
+  margin-right: 5px;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+}
+
+#go-back:hover {
+  background-color: var(--violet-600);
+}
+
+#submit-book:hover {
+  background-color: var(--violet-600);
+}
+
 .default-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #add-book-button {
-    cursor: pointer;
+  display: none;
+  /* cursor: pointer;
     color: var(--violet-50);
     background-color: var(--violet-500);
     box-shadow: 2px 2px 4px var(--shadow);
@@ -74,11 +121,11 @@ html,
     width: 125px;
     height: 75px;
     letter-spacing: 0.5px;
-    font-size: 15px;
+    font-size: 15px; */
 }
 
 #add-book-button:hover {
-    background-color: var(--violet-900);
+  background-color: var(--violet-900);
 }
 
 .library-card {

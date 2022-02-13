@@ -75,3 +75,9 @@ const button = document.getElementById("add-book-button");
 button.addEventListener("click", addBookToLibrary);
 
 // Left on step 4 on TOP
+
+
+// create HTML div with form 
+// hide form using CSS 
+// Use button id to show/hide form by changing display type 
+//
