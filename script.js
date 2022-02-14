@@ -26,23 +26,26 @@ function addBookToLibrary() {
 function createLibrary() {
   for (let i = 0; i < myLibrary.length; i++) {
     if (myLibrary[i].exists == false) {
+      let index = i;
       createLibraryCard(
         myLibrary[i].title,
         myLibrary[i].author,
         myLibrary[i].pages,
-        myLibrary[i].read
+        myLibrary[i].read,
+        index
       ),
         (myLibrary[i].exists = 1);
     }
   }
 }
 
-function createLibraryCard(title, author, pages, read) {
+function createLibraryCard(title, author, pages, read, index) {
   const bookCard = document.createElement("div");
   const bookTitle = document.createElement("h3");
   const bookAuthor = document.createElement("h4");
   const bookPages = document.createElement("p");
   const bookRead = document.createElement("p");
+  bookCard.setAttribute("data-index", `${index}`);
   bookTitle.innerText = `Title: ${title}`;
   bookAuthor.innerText = `Author: ${author}`;
   bookPages.innerText = `Pages: ${pages}`;
