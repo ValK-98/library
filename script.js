@@ -16,24 +16,12 @@ function addBookToLibrary() {
   const title = document.querySelector("#title").value;
   const pages = document.querySelector("#pages").value;
   const read = toggleCheckbox();
-  // const read = document.querySelector("#read").value; RETURN ON BY DEFAULT
-  // let title = prompt("Title");
-  // let author = prompt("Author");
-  // let pages = prompt("Pages");
-  // let read = prompt("Read?");
   if (title != null && read != null) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     createLibrary();
   }
 }
-
-// function clearInput() {
-//   let author = document.querySelector("#author-name").value;
-//   let title = document.querySelector("#title").value;
-//   let pages = document.querySelector("#pages").value;
-//   return (author = ""), (title = ""), (pages = "");
-// }
 
 function createLibrary() {
   for (let i = 0; i < myLibrary.length; i++) {
@@ -69,7 +57,15 @@ function createLibraryCard(title, author, pages, read) {
   bookCard.appendChild(bookPages);
   bookCard.appendChild(bookRead);
   document.getElementById("library").appendChild(bookCard);
+  closeForm();
 }
+
+function clearInput() {
+  document.getElementById("author-name").value = '';
+  document.getElementById("title").value = '';
+  document.getElementById("pages").value = '';
+}
+
 
 function openForm() {
   document.getElementById("entry-form").style.display = "flex";
@@ -79,6 +75,7 @@ function openForm() {
 function closeForm() {
   document.getElementById("entry-form").style.display = "none";
   document.getElementById("open-form-button").style.display = "initial";
+  clearInput();
 }
 
 function toggleCheckbox() {
