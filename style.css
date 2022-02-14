@@ -112,6 +112,7 @@ html,
   align-items: center;
 }
 
+
 #open-form-button {
   cursor: pointer;
   color: var(--violet-50);
@@ -140,7 +141,18 @@ html,
 }
 
 .book-title {
-  font-weight: bold;
-  font-size: 15px;
+  font-size: 22px;
   letter-spacing: 1.5px;
+}
+
+.book-author {
+  font-size: 17px;
+}
+
+#book-delete {
+  color: red; 
+}
+
+.card-content {
+  letter-spacing: 1px;
 }

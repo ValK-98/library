@@ -45,20 +45,25 @@ function createLibraryCard(title, author, pages, read, index) {
   const bookAuthor = document.createElement("h4");
   const bookPages = document.createElement("p");
   const bookRead = document.createElement("p");
+  const bookDelete = document.createElement("button");
   bookCard.setAttribute("data-index", `${index}`);
   bookTitle.innerText = `Title: ${title}`;
   bookAuthor.innerText = `Author: ${author}`;
   bookPages.innerText = `Pages: ${pages}`;
   bookRead.innerText = `Has it been read? - ${read}`;
+  bookDelete.innerText = `X`;
   bookCard.classList.add("library-card");
   bookTitle.classList.add("book-title", "card-content");
   bookAuthor.classList.add("book-author", "card-content");
   bookPages.classList.add("book-pages", "card-content");
   bookRead.classList.add("book-read", "card-content");
+  bookDelete.classList.add("book-delete", "card-content");
+  bookDelete.setAttribute("id", "book-delete");
   bookCard.appendChild(bookTitle);
   bookCard.appendChild(bookAuthor);
   bookCard.appendChild(bookPages);
   bookCard.appendChild(bookRead);
+  bookCard.appendChild(bookDelete);
   document.getElementById("library").appendChild(bookCard);
   closeForm();
 }
@@ -99,9 +104,11 @@ checkbox.addEventListener("onClick", toggleCheckbox);
 
 
 // left on TOP step 5.
-// Need to implement erase function. 
+// Need to implement delete button. 
 // Need to implement form validation. Return if empty. 
 
-
+// delete blueprint below 
+// var el = document.querySelector("[data-index='0']");
+// el.remove
 
 
