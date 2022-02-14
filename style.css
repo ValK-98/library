@@ -36,7 +36,8 @@ html,
   box-shadow: 2px 2px 4px var(--shadow);
 }
 
-.header-title {
+.header-title { 
+  /* Need to fix scaling */
   color: var(--violet-50);
   font-weight: bold;
   font-size: 34px;
@@ -56,7 +57,7 @@ html,
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   padding-left: 20px;
-  /* need to fix scaling, doesn't look great rn */
+  /* need to fix scaling*/
 }
 
 #entry-form {

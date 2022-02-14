@@ -15,6 +15,7 @@ function addBookToLibrary() {
   const author = document.querySelector("#author-name").value;
   const title = document.querySelector("#title").value;
   const pages = document.querySelector("#pages").value;
+  const read = toggleCheckbox();
   // const read = document.querySelector("#read").value; RETURN ON BY DEFAULT
   // let title = prompt("Title");
   // let author = prompt("Author");
@@ -80,17 +81,27 @@ function closeForm() {
   document.getElementById("open-form-button").style.display = "initial";
 }
 
+function toggleCheckbox() {
+  return (checkbox.checked) ? "Yes" : "No";
+}
+
 const container = document.getElementById("container");
 const openFormButton = document.getElementById("open-form-button");
 const closeFormButton = document.getElementById("go-back");
 const submitBook = document.getElementById("submit-book");
+const checkbox = document.getElementById("read");
 
 
 openFormButton.addEventListener("click", openForm);
 closeFormButton.addEventListener("click", closeForm);
 submitBook.addEventListener("click", addBookToLibrary);
+checkbox.addEventListener("onClick", toggleCheckbox);
 
 
 // left on TOP step 5.
-// Need to finish checkbox function for user input. 
 // Need to implement erase function. 
+// Need to implement form validation. Return if empty. 
+
+
+
+
