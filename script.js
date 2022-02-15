@@ -107,11 +107,14 @@ checkbox.addEventListener("onClick", toggleCheckbox);
 // Need to implement delete button. 
 // Need to implement form validation. Return if empty. 
 
-// delete blueprint below 
-// var el = document.querySelector("[data-index='0']");
-// el.remove
+
 
 
 function bookRemove() {
-  
+  // delete blueprint below 
+// var el = document.querySelector("[data-index='0']");
+// el.remove
+
+// need to give delete button the same index as book card
+// if del button index attribute === book card index then delete
 }
