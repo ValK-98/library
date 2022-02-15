@@ -51,7 +51,7 @@ function createLibraryCard(title, author, pages, read, index) {
   bookAuthor.innerText = `Author: ${author}`;
   bookPages.innerText = `Pages: ${pages}`;
   bookRead.innerText = `Has it been read? - ${read}`;
-  bookDelete.innerText = `X`;
+  bookDelete.innerText = `Remove`;
   bookCard.classList.add("library-card");
   bookTitle.classList.add("book-title", "card-content");
   bookAuthor.classList.add("book-author", "card-content");

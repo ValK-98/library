@@ -138,6 +138,7 @@ html,
   height: 200px;
   padding: 10px;
   line-height: 40px;
+  overflow: auto;
 }
 
 .book-title {
@@ -150,7 +151,16 @@ html,
 }
 
 #book-delete {
-  color: red; 
+  cursor: pointer;
+  color: var(--violet-50);
+  background-color: var(--violet-500);
+  box-shadow: 2px 2px 4px var(--shadow);
+  border-radius: 5px;
+  width: 60px;
+  height: 40px;
+  margin-right: 5px;
+  letter-spacing: 0.5px;
+  font-size: 15px;
 }
 
 .card-content {
