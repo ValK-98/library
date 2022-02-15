@@ -112,3 +112,6 @@ checkbox.addEventListener("onClick", toggleCheckbox);
 // el.remove
 
 
+function bookRemove() {
+  
+}
