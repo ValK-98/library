@@ -46,7 +46,8 @@ function createLibraryCard(title, author, pages, read, index) {
   const bookPages = document.createElement("p");
   const bookRead = document.createElement("p");
   const bookDelete = document.createElement("button");
-  bookCard.setAttribute("data-index", `${index}`);
+  // bookCard.setAttribute("data-index", `${index}`);
+  bookCard.setAttribute("id", `${index}`);
   bookTitle.innerText = `Title: ${title}`;
   bookAuthor.innerText = `Author: ${author}`;
   bookPages.innerText = `Pages: ${pages}`;
@@ -77,6 +78,8 @@ function clearInput() {
 
 function bookRemove() {
   const parentElement = document.getElementById("book-delete").parentElement;
+  let index = parentElement.getAttribute("id");
+  myLibrary.splice(index, 1);
   parentElement.remove();
 }
 
