@@ -67,7 +67,6 @@ function createLibraryCard(title, author, pages, read, index) {
   const bookDelete = document.createElement("button");
   const bookReadToggle = document.createElement("button");
   //
-  bookCard.setAttribute("id", `${index}`);
   bookTitle.innerText = `Title: ${title}`;
   bookAuthor.innerText = `Author: ${author}`;
   bookPages.innerText = `Pages: ${pages}`;
@@ -81,10 +80,13 @@ function createLibraryCard(title, author, pages, read, index) {
   bookPages.classList.add("book-pages", "card-content");
   bookRead.classList.add("book-read", "card-content");
   bookDelete.classList.add("user-book-button", "card-content");
-  bookDelete.setAttribute("id", "book-delete");
-  bookDelete.addEventListener("click", bookRemove);
   bookReadToggle.classList.add("user-book-button", "card-content");
+  //
+  bookCard.setAttribute("id", `${index}`);
+  bookDelete.setAttribute("id", "book-delete");
   bookReadToggle.setAttribute("id", "book-mark-read");
+  bookDelete.addEventListener("click", bookRemove);
+  bookReadToggle.addEventListener("click", toggleRead);
   //
   bookCard.appendChild(bookTitle);
   bookCard.appendChild(bookAuthor);
@@ -125,6 +127,20 @@ function toggleCheckbox() {
   return checkbox.checked ? "Yes" : "No";
 }
 
+function toggleRead() {
+  const parentElement = document.getElementById("book-mark-read").parentElement;
+  let index = parentElement.getAttribute("id");
+  if (myLibrary[index].read == "Yes") {
+    markRead("No"), (myLibrary[index].read = "No");
+  } else markRead("Yes"), (myLibrary[index].read = "Yes");
+}
+
+function markRead(readStatus) {
+  document.querySelector(
+    ".book-read"
+  ).innerText = `Has it been read? - ${readStatus}`;
+}
+
 const container = document.getElementById("container");
 const openFormButton = document.getElementById("open-form-button");
 const closeFormButton = document.getElementById("go-back");
@@ -135,5 +151,3 @@ openFormButton.addEventListener("click", openForm);
 closeFormButton.addEventListener("click", closeForm);
 submitBook.addEventListener("click", addBookToLibrary);
 checkbox.addEventListener("onClick", toggleCheckbox);
-
-// left on TOP step 6.
