@@ -141,7 +141,7 @@ html,
   overflow: hidden;
 }
 
-#book-delete {
+.user-book-button {
   cursor: pointer;
   color: var(--violet-50);
   background-color: var(--violet-500);
