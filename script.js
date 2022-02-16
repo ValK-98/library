@@ -1,4 +1,5 @@
 let myLibrary = [];
+let errorMessage = `Required value!`;
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -16,10 +17,19 @@ function addBookToLibrary() {
   const title = document.querySelector("#title").value;
   const pages = document.querySelector("#pages").value;
   const read = toggleCheckbox();
-  if (title != null && read != null) {
+  if (
+    author != "" &&
+    title != "" &&
+    pages != "" &&
+    author != `${errorMessage}` &&
+    title != `${errorMessage}` &&
+    pages != `${errorMessage}`
+  ) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     createLibrary();
+  } else {
+    errorLibrary();
   }
 }
 
@@ -39,6 +49,15 @@ function createLibrary() {
   }
 }
 
+function errorLibrary() {
+  const parentElement = document.querySelector(".input-fields");
+  const inputElements = parentElement.querySelectorAll("input");
+  inputElements.forEach((element) => {
+    console.log(element);
+    element.value = `${errorMessage}`;
+  });
+}
+
 function createLibraryCard(title, author, pages, read, index) {
   const bookCard = document.createElement("div");
   const bookTitle = document.createElement("h3");
@@ -46,7 +65,6 @@ function createLibraryCard(title, author, pages, read, index) {
   const bookPages = document.createElement("p");
   const bookRead = document.createElement("p");
   const bookDelete = document.createElement("button");
-  // bookCard.setAttribute("data-index", `${index}`);
   bookCard.setAttribute("id", `${index}`);
   bookTitle.innerText = `Title: ${title}`;
   bookAuthor.innerText = `Author: ${author}`;
@@ -109,10 +127,5 @@ closeFormButton.addEventListener("click", closeForm);
 submitBook.addEventListener("click", addBookToLibrary);
 checkbox.addEventListener("onClick", toggleCheckbox);
 
-// left on TOP step 5.
+// left on TOP step 6.
 // Need to implement form validation. Return if empty.
-
-
-
-
-
