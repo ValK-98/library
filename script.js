@@ -53,7 +53,6 @@ function errorLibrary() {
   const parentElement = document.querySelector(".input-fields");
   const inputElements = parentElement.querySelectorAll("input");
   inputElements.forEach((element) => {
-    console.log(element);
     element.value = `${errorMessage}`;
   });
 }
@@ -151,3 +150,30 @@ openFormButton.addEventListener("click", openForm);
 closeFormButton.addEventListener("click", closeForm);
 submitBook.addEventListener("click", addBookToLibrary);
 checkbox.addEventListener("onClick", toggleCheckbox);
+
+function bookTester(author, title, pages, read) {
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    createLibrary();
+  }
+
+  // function readTarget(event) { 
+  //   toggleRead(event.target.id);
+  // }
+
+  // function deleteTarget(event) { 
+  //   bookRemove(event.target.id);
+  // }
+
+  bookTester("Boi 0", "Boi 0", "123", "Yes")
+  bookTester("Boi 1", "Boi 1", "555", "No")
+  bookTester("Boi 2", "Boi 2", "166", "No")
+  bookTester("Boi 3", "Boi 3", "183", "Yes")
+  bookTester("Boi 4", "Boi 4", "723", "No")
+  bookTester("Boi 5", "Boi 5", "523", "Yes")
+
+// to do - currently read/remove only affects first element. 
+// need to figure out a way to select correct element 
+// use .target or .closest 
+// need to optimise some functions by rewriting.
+// need to organize code better for future readability. 
