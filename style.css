@@ -36,7 +36,7 @@ html,
   box-shadow: 2px 2px 4px var(--shadow);
 }
 
-.header-title { 
+.header-title {
   /* Need to fix scaling */
   color: var(--violet-50);
   font-weight: bold;
@@ -111,7 +111,6 @@ html,
   justify-content: center;
   align-items: center;
 }
-
 
 #open-form-button {
   cursor: pointer;

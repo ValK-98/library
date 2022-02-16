@@ -59,6 +59,7 @@ function createLibraryCard(title, author, pages, read, index) {
   bookRead.classList.add("book-read", "card-content");
   bookDelete.classList.add("book-delete", "card-content");
   bookDelete.setAttribute("id", "book-delete");
+  bookDelete.addEventListener("click", bookRemove);
   bookCard.appendChild(bookTitle);
   bookCard.appendChild(bookAuthor);
   bookCard.appendChild(bookPages);
@@ -69,11 +70,15 @@ function createLibraryCard(title, author, pages, read, index) {
 }
 
 function clearInput() {
-  document.getElementById("author-name").value = '';
-  document.getElementById("title").value = '';
-  document.getElementById("pages").value = '';
+  document.getElementById("author-name").value = "";
+  document.getElementById("title").value = "";
+  document.getElementById("pages").value = "";
 }
 
+function bookRemove() {
+  const parentElement = document.getElementById("book-delete").parentElement;
+  parentElement.remove();
+}
 
 function openForm() {
   document.getElementById("entry-form").style.display = "flex";
@@ -87,7 +92,7 @@ function closeForm() {
 }
 
 function toggleCheckbox() {
-  return (checkbox.checked) ? "Yes" : "No";
+  return checkbox.checked ? "Yes" : "No";
 }
 
 const container = document.getElementById("container");
@@ -96,25 +101,15 @@ const closeFormButton = document.getElementById("go-back");
 const submitBook = document.getElementById("submit-book");
 const checkbox = document.getElementById("read");
 
-
 openFormButton.addEventListener("click", openForm);
 closeFormButton.addEventListener("click", closeForm);
 submitBook.addEventListener("click", addBookToLibrary);
 checkbox.addEventListener("onClick", toggleCheckbox);
 
-
 // left on TOP step 5.
-// Need to implement delete button. 
-// Need to implement form validation. Return if empty. 
+// Need to implement form validation. Return if empty.
 
 
 
 
-function bookRemove() {
-  // delete blueprint below 
-// var el = document.querySelector("[data-index='0']");
-// el.remove
 
-// need to give delete button the same index as book card
-// if del button index attribute === book card index then delete
-}
