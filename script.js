@@ -73,7 +73,7 @@ function createLibraryCard(title, author, pages, read, index) {
   bookDelete.innerText = `Remove`;
   bookReadToggle.innerText = `Read`;
   //
-  bookCard.classList.add("library-card");
+  bookCard.classList.add("library-card", "user-card");
   bookTitle.classList.add("book-title", "card-content");
   bookAuthor.classList.add("book-author", "card-content");
   bookPages.classList.add("book-pages", "card-content");
@@ -81,11 +81,14 @@ function createLibraryCard(title, author, pages, read, index) {
   bookDelete.classList.add("user-book-button", "card-content");
   bookReadToggle.classList.add("user-book-button", "card-content");
   //
-  bookCard.setAttribute("id", `${index}`);
+  bookCard.setAttribute("data-index", `${index}`);
   bookDelete.setAttribute("id", "book-delete");
+  bookDelete.setAttribute("data-index", `${index}`);
   bookReadToggle.setAttribute("id", "book-mark-read");
-  bookDelete.addEventListener("click", bookRemove);
+  // bookDelete.addEventListener("click", bookRemove);
+  bookDelete.addEventListener("click", addSelector);
   bookReadToggle.addEventListener("click", toggleRead);
+  // bookCard.addEventListener("click", addSelector);
   //
   bookCard.appendChild(bookTitle);
   bookCard.appendChild(bookAuthor);
@@ -98,18 +101,31 @@ function createLibraryCard(title, author, pages, read, index) {
   closeForm();
 }
 
+
+function addSelector(event) {
+  let bookNum = event.target.getAttribute("data-index");
+  bookRemove(bookNum);
+}
+
+
+function bookRemove(bookNum) {
+  const parentElement = document.querySelector(`[data-index="${bookNum}"]`);
+  myLibrary.splice(bookNum, 1);
+  parentElement.remove();
+}
+
 function clearInput() {
   document.getElementById("author-name").value = "";
   document.getElementById("title").value = "";
   document.getElementById("pages").value = "";
 }
 
-function bookRemove() {
-  const parentElement = document.getElementById("book-delete").parentElement;
-  let index = parentElement.getAttribute("id");
-  myLibrary.splice(index, 1);
-  parentElement.remove();
-}
+// function bookRemove() {
+//   const parentElement = document.getElementById("book-delete").parentElement;
+//   let index = parentElement.getAttribute("id");
+//   myLibrary.splice(index, 1);
+//   parentElement.remove();
+// }
 
 function openForm() {
   document.getElementById("entry-form").style.display = "flex";
@@ -152,28 +168,28 @@ submitBook.addEventListener("click", addBookToLibrary);
 checkbox.addEventListener("onClick", toggleCheckbox);
 
 function bookTester(author, title, pages, read) {
-    let newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
-    createLibrary();
-  }
+  let newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+  createLibrary();
+}
 
-  // function readTarget(event) { 
-  //   toggleRead(event.target.id);
-  // }
+// function readTarget(event) {
+//   toggleRead(event.target.id);
+// }
 
-  // function deleteTarget(event) { 
-  //   bookRemove(event.target.id);
-  // }
+// function deleteTarget(event) {
+//   bookRemove(event.target.id);
+// }
 
-  bookTester("Boi 0", "Boi 0", "123", "Yes")
-  bookTester("Boi 1", "Boi 1", "555", "No")
-  bookTester("Boi 2", "Boi 2", "166", "No")
-  bookTester("Boi 3", "Boi 3", "183", "Yes")
-  bookTester("Boi 4", "Boi 4", "723", "No")
-  bookTester("Boi 5", "Boi 5", "523", "Yes")
+bookTester("Boi 0", "Boi 0", "123", "Yes");
+bookTester("Boi 1", "Boi 1", "555", "No");
+bookTester("Boi 2", "Boi 2", "166", "No");
+bookTester("Boi 3", "Boi 3", "183", "Yes");
+bookTester("Boi 4", "Boi 4", "723", "No");
+bookTester("Boi 5", "Boi 5", "523", "Yes");
 
-// to do - currently read/remove only affects first element. 
-// need to figure out a way to select correct element 
-// use .target or .closest 
+// to do - currently read/remove only affects first element.
+// need to figure out a way to select correct element
+// use .target or .closest
 // need to optimise some functions by rewriting.
-// need to organize code better for future readability. 
+// need to organize code better for future readability.
