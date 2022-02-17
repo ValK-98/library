@@ -195,8 +195,24 @@ bookTester("Boi 3", "Boi 3", "183", "Yes");
 bookTester("Boi 4", "Boi 4", "723", "No");
 bookTester("Boi 5", "Boi 5", "523", "Yes");
 
-// to do - currently read/remove only affects first element.
-// need to figure out a way to select correct element
-// use .target or .closest
+// outstanding issues:
+// remove button removes correct books from list,
+//  however doesn't remove all of them from array.
+// Looks like this is due to fact that array position moves
+// however function takes static position from DOM 
+// possible solutions may include either dynamically updating DOM index
+// or creating a seperate function that checks if DOM element exist, if not remove from array
+
+// bookRead() currently still marks the first book, ignores the rest.
+// may need to refer to previous commit
+// current issue seems to occur from the fact that the
+// markRead() doesn't use location of book 
+// possible solutions may include removing markRead() and
+// having everything in bookRead()
+// or figuring out how to make querySelector specifically include
+// [data-] OR first define parent element and then use `.book-read`
+  
+
+
 // need to optimise some functions by rewriting.
 // need to organize code better for future readability.
