@@ -84,10 +84,11 @@ function createLibraryCard(title, author, pages, read, index) {
   bookCard.setAttribute("data-index", `${index}`);
   bookDelete.setAttribute("id", "book-delete");
   bookDelete.setAttribute("data-index", `${index}`);
+  bookReadToggle.setAttribute("data-index", `${index}`);
   bookReadToggle.setAttribute("id", "book-mark-read");
   // bookDelete.addEventListener("click", bookRemove);
-  bookDelete.addEventListener("click", addSelector);
-  bookReadToggle.addEventListener("click", toggleRead);
+  bookDelete.addEventListener("click", removeSelector);
+  bookReadToggle.addEventListener("click", readSelector);
   // bookCard.addEventListener("click", addSelector);
   //
   bookCard.appendChild(bookTitle);
@@ -102,9 +103,28 @@ function createLibraryCard(title, author, pages, read, index) {
 }
 
 
-function addSelector(event) {
+function removeSelector(event) {
   let bookNum = event.target.getAttribute("data-index");
   bookRemove(bookNum);
+}
+
+function readSelector(event) {
+  let bookNum = event.target.getAttribute("data-index");
+  toggleRead(bookNum);
+}
+
+function toggleRead(bookNum) {
+  // const parentElement = document.querySelector(`[data-index="${bookNum}"]`);
+  // let index = parentElement.getAttribute("id");
+  if (myLibrary[bookNum].read == "Yes") {
+    markRead("No"), (myLibrary[bookNum].read = "No");
+  } else markRead("Yes"), (myLibrary[bookNum].read = "Yes");
+}
+
+function markRead(bookNum, readStatus) {
+  document.querySelector(
+    `.book-read`
+  ).innerText = `Has it been read? - ${readStatus}`;
 }
 
 
@@ -142,19 +162,6 @@ function toggleCheckbox() {
   return checkbox.checked ? "Yes" : "No";
 }
 
-function toggleRead() {
-  const parentElement = document.getElementById("book-mark-read").parentElement;
-  let index = parentElement.getAttribute("id");
-  if (myLibrary[index].read == "Yes") {
-    markRead("No"), (myLibrary[index].read = "No");
-  } else markRead("Yes"), (myLibrary[index].read = "Yes");
-}
-
-function markRead(readStatus) {
-  document.querySelector(
-    ".book-read"
-  ).innerText = `Has it been read? - ${readStatus}`;
-}
 
 const container = document.getElementById("container");
 const openFormButton = document.getElementById("open-form-button");
