@@ -160,18 +160,18 @@ function toggleCheckbox() {
   return checkbox.checked ? "Yes" : "No";
 }
 
-function bookTester(author, title, pages, read) {
-  let newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
-  createLibrary();
-}
+// function bookTester(author, title, pages, read) {
+//   let newBook = new Book(title, author, pages, read);
+//   myLibrary.push(newBook);
+//   createLibrary();
+// }
 
-bookTester("Boi 0", "Boi 0", "123", "Yes");
-bookTester("Boi 1", "Boi 1", "555", "No");
-bookTester("Boi 2", "Boi 2", "166", "No");
-bookTester("Boi 3", "Boi 3", "183", "Yes");
-bookTester("Boi 4", "Boi 4", "723", "No");
-bookTester("Boi 5", "Boi 5", "523", "Yes");
+// bookTester("Boi 0", "Boi 0", "123", "Yes");
+// bookTester("Boi 1", "Boi 1", "555", "No");
+// bookTester("Boi 2", "Boi 2", "166", "No");
+// bookTester("Boi 3", "Boi 3", "183", "Yes");
+// bookTester("Boi 4", "Boi 4", "723", "No");
+// bookTester("Boi 5", "Boi 5", "523", "Yes");
 
 // outstanding issues:
 // remove button removes correct books from list,
