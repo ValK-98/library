@@ -1,6 +1,17 @@
 let myLibrary = [];
 let errorMessage = `Required value!`;
 
+const container = document.getElementById("container");
+const openFormButton = document.getElementById("open-form-button");
+const closeFormButton = document.getElementById("go-back");
+const submitBook = document.getElementById("submit-book");
+const checkbox = document.getElementById("read");
+
+openFormButton.addEventListener("click", openForm);
+closeFormButton.addEventListener("click", closeForm);
+submitBook.addEventListener("click", addBookToLibrary);
+checkbox.addEventListener("onClick", toggleCheckbox);
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -86,10 +97,8 @@ function createLibraryCard(title, author, pages, read, index) {
   bookDelete.setAttribute("data-index", `${index}`);
   bookReadToggle.setAttribute("data-index", `${index}`);
   bookReadToggle.setAttribute("id", "book-mark-read");
-  // bookDelete.addEventListener("click", bookRemove);
   bookDelete.addEventListener("click", removeSelector);
   bookReadToggle.addEventListener("click", readSelector);
-  // bookCard.addEventListener("click", addSelector);
   //
   bookCard.appendChild(bookTitle);
   bookCard.appendChild(bookAuthor);
@@ -101,7 +110,6 @@ function createLibraryCard(title, author, pages, read, index) {
   document.getElementById("library").appendChild(bookCard);
   closeForm();
 }
-
 
 function removeSelector(event) {
   let bookNum = event.target.getAttribute("data-index");
@@ -125,7 +133,6 @@ function markRead(readStatus, bookNum) {
   readCheck.innerText = `Has it been read? - ${readStatus}`;
 }
 
-
 function bookRemove(bookNum) {
   const parentElement = document.querySelector(`[data-index="${bookNum}"]`);
   myLibrary.splice(bookNum, 1);
@@ -137,13 +144,6 @@ function clearInput() {
   document.getElementById("title").value = "";
   document.getElementById("pages").value = "";
 }
-
-// function bookRemove() {
-//   const parentElement = document.getElementById("book-delete").parentElement;
-//   let index = parentElement.getAttribute("id");
-//   myLibrary.splice(index, 1);
-//   parentElement.remove();
-// }
 
 function openForm() {
   document.getElementById("entry-form").style.display = "flex";
@@ -160,31 +160,11 @@ function toggleCheckbox() {
   return checkbox.checked ? "Yes" : "No";
 }
 
-
-const container = document.getElementById("container");
-const openFormButton = document.getElementById("open-form-button");
-const closeFormButton = document.getElementById("go-back");
-const submitBook = document.getElementById("submit-book");
-const checkbox = document.getElementById("read");
-
-openFormButton.addEventListener("click", openForm);
-closeFormButton.addEventListener("click", closeForm);
-submitBook.addEventListener("click", addBookToLibrary);
-checkbox.addEventListener("onClick", toggleCheckbox);
-
 function bookTester(author, title, pages, read) {
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
   createLibrary();
 }
-
-// function readTarget(event) {
-//   toggleRead(event.target.id);
-// }
-
-// function deleteTarget(event) {
-//   bookRemove(event.target.id);
-// }
 
 bookTester("Boi 0", "Boi 0", "123", "Yes");
 bookTester("Boi 1", "Boi 1", "555", "No");
@@ -197,20 +177,15 @@ bookTester("Boi 5", "Boi 5", "523", "Yes");
 // remove button removes correct books from list,
 //  however doesn't remove all of them from array.
 // Looks like this is due to fact that array position moves
-// however function takes static position from DOM 
+// however function takes static position from DOM
 // possible solutions may include either dynamically updating DOM index
 // or creating a seperate function that checks if DOM element exist, if not remove from array
 
 // bookRead() currently still marks the first book, ignores the rest.
 // may need to refer to previous commit
 // current issue seems to occur from the fact that the
-// markRead() doesn't use location of book 
+// markRead() doesn't use location of book
 // possible solutions may include removing markRead() and
 // having everything in bookRead()
 // or figuring out how to make querySelector specifically include
 // [data-] OR first define parent element and then use `.book-read`
-  
-
-
-// need to optimise some functions by rewriting.
-// need to organize code better for future readability.
