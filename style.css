@@ -45,6 +45,13 @@ html,
   padding: 30px;
 }
 
+#github {
+  position: absolute;
+  box-sizing: border-box;
+  right: 50px;
+  top: 20%;
+}
+
 #container {
   position: absolute;
   box-sizing: border-box;
