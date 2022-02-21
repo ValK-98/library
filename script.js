@@ -114,17 +114,15 @@ function readSelector(event) {
 }
 
 function toggleRead(bookNum) {
-  // const parentElement = document.querySelector(`[data-index="${bookNum}"]`);
-  // let index = parentElement.getAttribute("id");
   if (myLibrary[bookNum].read == "Yes") {
-    markRead("No"), (myLibrary[bookNum].read = "No");
-  } else markRead("Yes"), (myLibrary[bookNum].read = "Yes");
+    markRead("No", bookNum), (myLibrary[bookNum].read = "No");
+  } else markRead("Yes", bookNum), (myLibrary[bookNum].read = "Yes");
 }
 
-function markRead(bookNum, readStatus) {
-  document.querySelector(
-    `.book-read`
-  ).innerText = `Has it been read? - ${readStatus}`;
+function markRead(readStatus, bookNum) {
+  const parentElement = document.querySelector(`[data-index="${bookNum}"]`);
+  const readCheck = parentElement.querySelector(`.book-read`);
+  readCheck.innerText = `Has it been read? - ${readStatus}`;
 }
 
 
