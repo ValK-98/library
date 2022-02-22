@@ -12,17 +12,6 @@ closeFormButton.addEventListener("click", closeForm);
 submitBook.addEventListener("click", addBookToLibrary);
 checkbox.addEventListener("onClick", toggleCheckbox);
 
-// function Book(title, author, pages, read) {
-//   this.title = title;
-//   this.author = author;
-//   this.pages = pages;
-//   this.read = read;
-//   this.exists = -0;
-//   this.returnArr = function () {
-//     return [title, author, pages, read];
-//   };
-// }
-
 class Book {
   constructor(title, author, pages, read) {
     this.title = title;
