@@ -29,6 +29,7 @@ class Book {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.exists = -0;
   }
   returnArr() {
     return [title, author, pages, read];
